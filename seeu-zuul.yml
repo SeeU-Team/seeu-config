@@ -21,7 +21,9 @@ spring:
       - id: user-management
         uri: lb://seeu-user-management
         predicates:
-        - Path=/users/**
+        - Path=/api/users/**
+        filters:
+        - RewritePath=/api/(?<segment>.*), /$\{segment}
       discovery:
         locator:
           enabled: true
