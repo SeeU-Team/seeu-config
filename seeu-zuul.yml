@@ -3,7 +3,8 @@ configuration:
 
 server:
   port: 8001
-  contextPath: /api
+  servlet:
+    context-path: /api
 
 management:
   security:
@@ -36,8 +37,3 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka/
     registerWithEureka: true
-
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: DEBUG
