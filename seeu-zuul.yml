@@ -21,6 +21,9 @@ spring:
         uri: lb://seeu-user-management
         predicates:
         - Path=/users/**
+      discovery:
+        locator:
+          enabled: true
 
 eureka:
   instance:
