@@ -13,24 +13,14 @@ management:
       exposure:
         include: "*"
 
-zuul:
-  ignored-services: "*"
-  host:
-    connect-timeout-millis: 60000
-    socket-timeout-millis: 60000
-  routes:
-    users:
-      path: /users/**
-      serviceId: seeu-user-management
-      stripPrefix: false
-
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 60000
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: user-management
+        uri: lb://seeu-user-management
+        predicates:
+        - Path=/users/**
 
 eureka:
   instance:
