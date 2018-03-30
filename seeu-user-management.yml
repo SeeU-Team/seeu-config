@@ -4,19 +4,6 @@ configuration:
 server:
   port: 0
 
-# Eureka
-eureka:
-  instance:
-    metadataMap:
-      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-  server:
-    enabled: true
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8000/eureka/
-    registerWithEureka: true
-
 spring:
   # H2
   h2:
@@ -31,11 +18,22 @@ jpa:
     driver-class-name: org.h2.Driver
 
 management:
-  server:
-    port: 8081
   security:
     enabled: false
   endpoints:
     web:
       exposure:
         include: "*"
+
+# Eureka
+eureka:
+  instance:
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  server:
+    enabled: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+    registerWithEureka: true
