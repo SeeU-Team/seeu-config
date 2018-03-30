@@ -20,7 +20,7 @@ zuul:
     socket-timeout-millis: 60000
   routes:
     users:
-      path: /actuator/**
+      path: /users/**
       serviceId: seeu-user-management
       stripPrefix: false
 
@@ -43,3 +43,8 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka/
     registerWithEureka: true
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
