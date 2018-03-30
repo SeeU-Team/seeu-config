@@ -1,0 +1,41 @@
+configuration:  
+  projectName: seeu-zuul
+
+server:
+  port: 8001
+  contextPath: /api
+
+management:
+  security:
+    enabled: false
+
+zuul:
+  ignored-services: "*"
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+  routes:
+    users:
+      path: /users/**
+      serviceId: seeu-user-management
+      stripPrefix: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+eureka:
+  instance:
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  server:
+    enabled: true
+  client:
+    serviceUrl:
+      defaultZone: http://seeu-eureka:8000/eureka/
+    registerWithEureka: true
