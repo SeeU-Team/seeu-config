@@ -3,8 +3,6 @@ configuration:
 
 server:
   port: 8001
-  servlet:
-    context-path: /api
 
 management:
   security:
