@@ -20,7 +20,7 @@ zuul:
     socket-timeout-millis: 60000
   routes:
     users:
-      path: /users/**
+      path: /actuator/**
       serviceId: seeu-user-management
       stripPrefix: false
 
