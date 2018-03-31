@@ -1,5 +1,5 @@
 configuration:  
-  projectName: seeu-zuul
+  projectName: seeu-gateway
 
 server:
   port: 8001

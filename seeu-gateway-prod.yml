@@ -1,32 +1,30 @@
 configuration:  
-  projectName: seeu-zuul
+  projectName: seeu-gateway
 
 server:
   port: 8001
-  contextPath: /api
 
 management:
   security:
     enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
-zuul:
-  ignored-services: "*"
-  host:
-    connect-timeout-millis: 60000
-    socket-timeout-millis: 60000
-  routes:
-    users:
-      path: /users/**
-      serviceId: seeu-user-management
-      stripPrefix: false
-
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 60000
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: user-management
+        uri: lb://seeu-user-management
+        predicates:
+        - Path=/api/users/**
+        filters:
+        - RewritePath=/api/(?<segment>.*), /$\{segment}
+      discovery:
+        locator:
+          enabled: true
 
 eureka:
   instance:
