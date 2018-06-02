@@ -4,18 +4,20 @@ configuration:
 server:
   port: 0
 
+# Database configuration
 spring:
-  # H2
-  h2:
-    console:
-      enabled: true
-    path: /h2
-
-# Datasource
-jpa:
-  database: h2
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+    database: mysql
   datasource:
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/seeu-database
+    username: root
+    password:
+    driverClassName: com.mysql.jdbc.Driver
 
 management:
   security:
