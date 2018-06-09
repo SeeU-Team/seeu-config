@@ -26,10 +26,10 @@ spring:
       - id: messages
         uri: lb:ws://seeu-messages
         predicates:
-        - Path=/api/messages/**
+        - Path=/app/**
         filters:
-        - RewritePath=/api/(?<segment>.*), /$\{segment}
-        
+        - RewritePath=/app/(?<segment>.*), /$\{segment}
+
       discovery:
         locator:
           enabled: true
