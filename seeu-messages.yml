@@ -1,5 +1,5 @@
 configuration:  
-  projectName: seeu-user-management
+  projectName: seeu-messages
 
 server:
   port: 0
