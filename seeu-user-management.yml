@@ -16,7 +16,6 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/seeu-database
     username: root
-    password: root
     driverClassName: com.mysql.jdbc.Driver
 
 management:
