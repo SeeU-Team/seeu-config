@@ -36,9 +36,16 @@ spring:
         - Path=/api/medias/**
         filters:
         - RewritePath=/api/(?<segment>.*), /$\{segment}
+
+      - id: message-management
+        uri: lb://seeu-message-management
+        predicates:
+        - Path=/api/messages/**
+        filters:
+        - RewritePath=/api/(?<segment>.*), /$\{segment}
         
-      - id: messages
-        uri: lb:ws://seeu-messages
+      - id: message
+        uri: lb:ws://seeu-message
         predicates:
         - Path=/app/**
         filters:

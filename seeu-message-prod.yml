@@ -1,5 +1,5 @@
 configuration:  
-  projectName: seeu-messages
+  projectName: seeu-message
 
 server:
   port: 8080
