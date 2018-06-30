@@ -29,6 +29,13 @@ spring:
         - Path=/api/teams/**
         filters:
         - RewritePath=/api/(?<segment>.*), /$\{segment}
+        
+      - id: team-management
+        uri: lb://seeu-team-management
+        predicates:
+        - Path=/api/likes/**
+        filters:
+        - RewritePath=/api/(?<segment>.*), /$\{segment}
 
       - id: media-management
         uri: lb://seeu-media-management
