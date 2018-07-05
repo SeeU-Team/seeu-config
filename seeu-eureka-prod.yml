@@ -11,6 +11,7 @@ management:
 eureka:
   instance:
     hostname: seeu-eureka
+    preferIpAddress: false
   client:
     registerWithEureka: false
     fetchRegistry: false
