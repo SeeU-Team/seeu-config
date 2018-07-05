@@ -10,10 +10,7 @@ management:
 
 eureka:
   instance:
-    hostname: seeu-eureka
-    preferIpAddress: false
+    hostname: localhost
   client:
     registerWithEureka: false
     fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
