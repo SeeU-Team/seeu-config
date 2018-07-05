@@ -10,7 +10,7 @@ management:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: seeu-eureka
   client:
     registerWithEureka: false
     fetchRegistry: false
