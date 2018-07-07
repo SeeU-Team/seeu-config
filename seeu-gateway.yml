@@ -12,6 +12,11 @@ management:
       exposure:
         include: "*"
 
+token:
+  config:
+    secret: ${TOKEN_SECRET}
+    expiration-time: ${TOKEN_EXPIRATION_TIME}
+
 spring:
   cloud:
     gateway:

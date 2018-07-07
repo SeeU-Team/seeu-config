@@ -13,6 +13,22 @@ spring:
       hibernate:
         globally_quoted_identifiers: true
     database: mysql
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driverClassName: com.mysql.jdbc.Driver
+
+cloud:
+  aws:
+    credentials:
+      accessKey: ${AWS_ACCESS_KEY}
+      secretKey: ${AWS_SECRET_KEY}
+    region: ${AWS_REGION}
+
+aws:
+  bucket:
+    name: ${AWS_S3_BUCKET_NAME}
 
 management:
   security:

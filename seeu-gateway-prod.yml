@@ -12,6 +12,11 @@ management:
       exposure:
         include: "*"
 
+token:
+  config:
+    secret: ${TOKEN_SECRET}
+    expiration-time: ${TOKEN_EXPIRATION_TIME}
+
 spring:
   cloud:
     gateway:
@@ -30,6 +35,13 @@ spring:
         filters:
         - RewritePath=/api/(?<segment>.*), /$\{segment}
 
+      - id: team-management
+        uri: lb://seeu-team-management
+        predicates:
+        - Path=/api/likes/**
+        filters:
+        - RewritePath=/api/(?<segment>.*), /$\{segment}
+
       - id: media-management
         uri: lb://seeu-media-management
         predicates:
@@ -37,8 +49,15 @@ spring:
         filters:
         - RewritePath=/api/(?<segment>.*), /$\{segment}
 
-      - id: messages
-        uri: lb:ws://seeu-messages
+      - id: message-management
+        uri: lb://seeu-message-management
+        predicates:
+        - Path=/api/messages/**
+        filters:
+        - RewritePath=/api/(?<segment>.*), /$\{segment}
+
+      - id: message
+        uri: lb:ws://seeu-message
         predicates:
         - Path=/app/**
         filters:
