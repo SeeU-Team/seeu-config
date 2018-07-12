@@ -8,6 +8,24 @@ management:
   security:
     enabled: false
 
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+  hystrix:
+    enabled: false
+
+google:
+  firebase:
+    security:
+      serviceAccountPath: ${SERVICE_ACCOUNT_PATH}
+    messaging:
+      url: ${FIREBASE_MESSAGING_URL}
+    database:
+      url: ${FIREBASE_DATABASE_URL}
+
 # Eureka
 eureka:
   instance:

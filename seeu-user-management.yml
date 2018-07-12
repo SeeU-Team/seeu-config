@@ -4,6 +4,23 @@ configuration:
 server:
   port: 0
 
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+  hystrix:
+    enabled: false
+
 # Database configuration
 spring:
   jpa:
@@ -29,14 +46,6 @@ cloud:
 aws:
   bucket:
     name: ${AWS_S3_BUCKET_NAME}
-
-management:
-  security:
-    enabled: false
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 
 # Eureka
 eureka:

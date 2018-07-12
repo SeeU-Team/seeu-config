@@ -11,6 +11,15 @@ management:
     web:
       exposure:
         include: "*"
+        
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+  hystrix:
+    enabled: false
 
 token:
   config:
