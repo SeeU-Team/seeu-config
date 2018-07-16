@@ -27,6 +27,18 @@ token:
     expiration-time: ${TOKEN_EXPIRATION_TIME}
 
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+    database: mysql
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driverClassName: com.mysql.jdbc.Driver
   cloud:
     gateway:
       routes:
